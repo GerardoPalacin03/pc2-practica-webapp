@@ -6,7 +6,7 @@ namespace PC28084.U20211c201.Prueba.Capbase.Platform.Shared.Domain.Model.Excepti
 /// <param name="actualValue">The invalid value that was received.</param>
 /// <param name="paramName">The name of the argument that violates the rule.</param>
 /// <remarks>
-///     Author: Your Full Name
+///     Author: Gerardo Palacin
 /// </remarks>
 public sealed class NegativeMonetaryAmountException(decimal actualValue, string paramName)
     : ArgumentOutOfRangeException(paramName, actualValue,

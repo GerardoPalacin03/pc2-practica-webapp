@@ -4,7 +4,7 @@
 ///     Marker class used to locate the common localized messages (CommonMessages.resx).
 /// </summary>
 /// <remarks>
-///     Author: Your Full Name
+///     Author: Gerardo Palacin
 /// </remarks>
 public class CommonMessages
 {

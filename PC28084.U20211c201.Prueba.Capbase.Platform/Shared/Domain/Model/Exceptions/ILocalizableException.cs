@@ -6,7 +6,7 @@ namespace PC28084.U20211c201.Prueba.Capbase.Platform.Shared.Domain.Model.Excepti
 /// <remarks>
 ///     The domain layer must not depend on localization services. Instead, it throws exceptions that carry a
 ///     resource key, so the interfaces layer can translate the message according to the request culture.
-///     Author: Your Full Name
+///     Author: Gerardo Palacin
 /// </remarks>
 public interface ILocalizableException
 {
