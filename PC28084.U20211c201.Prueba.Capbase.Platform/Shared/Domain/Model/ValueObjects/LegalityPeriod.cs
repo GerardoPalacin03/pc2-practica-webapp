@@ -7,7 +7,7 @@ namespace PC28084.U20211c201.Prueba.Capbase.Platform.Shared.Domain.Model.ValueOb
 /// </summary>
 /// <remarks>
 ///     The period is valid only when the end date is later than the start date.
-///     Author: Your Full Name
+///     Author: Gerardo Palacin
 /// </remarks>
 public record LegalityPeriod
 {

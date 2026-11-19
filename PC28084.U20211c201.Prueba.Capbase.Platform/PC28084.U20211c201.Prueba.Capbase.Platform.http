@@ -1,6 +1,87 @@
-@PC28084.U20211c201.Prueba.Capbase.Platform_HostAddress = http://localhost:5097
+@host = http://localhost:5191
 
-GET {{PC28084.U20211c201.Prueba.Capbase.Platform_HostAddress}}/weatherforecast/
-Accept: application/json
+### 1. Create a covenant (201 Created). Status is omitted, so it defaults to Draft.
+POST {{host}}/api/v1/covenants
+Content-Type: application/json
+Accept-Language: en
 
-###
+{
+  "documentIdentifier": "3f2b8c9e-6d1a-4b7e-9c55-0a1d2e3f4a5b",
+  "clientId": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "periodStartDate": "2026-01-01",
+  "periodEndDate": "2026-12-31",
+  "monetaryAmountValue": 15000.50,
+  "monetaryAmountCurrency": "USD",
+  "footnotes": "First covenant"
+}
+
+### 2. Same document identifier again (409 Conflict), message in Spanish
+POST {{host}}/api/v1/covenants
+Content-Type: application/json
+Accept-Language: es-PE
+
+{
+  "documentIdentifier": "3f2b8c9e-6d1a-4b7e-9c55-0a1d2e3f4a5b",
+  "clientId": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "periodStartDate": "2026-01-01",
+  "periodEndDate": "2026-12-31",
+  "monetaryAmountValue": 15000.50,
+  "monetaryAmountCurrency": "USD"
+}
+
+### 3. End date equal to start date (400 Bad Request)
+POST {{host}}/api/v1/covenants
+Content-Type: application/json
+Accept-Language: en-US
+
+{
+  "documentIdentifier": "11111111-2222-3333-4444-555555555555",
+  "clientId": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "periodStartDate": "2026-06-01",
+  "periodEndDate": "2026-06-01",
+  "monetaryAmountValue": 100,
+  "monetaryAmountCurrency": "USD"
+}
+
+### 4. Negative value (400 Bad Request), message in Spanish
+POST {{host}}/api/v1/covenants
+Content-Type: application/json
+Accept-Language: es
+
+{
+  "documentIdentifier": "22222222-3333-4444-5555-666666666666",
+  "clientId": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "periodStartDate": "2026-01-01",
+  "periodEndDate": "2026-12-31",
+  "monetaryAmountValue": -1,
+  "monetaryAmountCurrency": "USD"
+}
+
+### 5. Blank currency (400 Bad Request)
+POST {{host}}/api/v1/covenants
+Content-Type: application/json
+Accept-Language: en
+
+{
+  "documentIdentifier": "33333333-4444-5555-6666-777777777777",
+  "clientId": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "periodStartDate": "2026-01-01",
+  "periodEndDate": "2026-12-31",
+  "monetaryAmountValue": 500,
+  "monetaryAmountCurrency": "   "
+}
+
+### 6. Explicit status Active (201 Created)
+POST {{host}}/api/v1/covenants
+Content-Type: application/json
+Accept-Language: en
+
+{
+  "documentIdentifier": "44444444-5555-6666-7777-888888888888",
+  "clientId": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "periodStartDate": "2026-03-01",
+  "periodEndDate": "2027-02-28",
+  "monetaryAmountValue": 2500,
+  "monetaryAmountCurrency": "PEN",
+  "status": "Active"
+}

@@ -12,7 +12,7 @@ namespace PC28084.U20211c201.Prueba.Capbase.Platform.Shared.Infrastructure.Persi
 ///     The options for the database context
 /// </param>
 /// <remarks>
-///     Author: Your Full Name
+///     Author: Gerardo Palacin
 /// </remarks>
 public class AppDbContext(DbContextOptions options) : DbContext(options)
 {
@@ -29,7 +29,7 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
     /// </summary>
     /// <remarks>
     ///     This method is used to create the database model for the application.
-    ///     Author: Your Full Name
+    ///     Author: Gerardo Palacin
     /// </remarks>
     /// <param name="builder">
     ///     The model builder for the database context

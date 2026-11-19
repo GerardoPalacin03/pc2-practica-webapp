@@ -4,7 +4,7 @@ namespace PC28084.U20211c201.Prueba.Capbase.Platform.Shared.Resources.Errors;
 ///     Marker class used to locate the localized error messages (ErrorMessages.resx).
 /// </summary>
 /// <remarks>
-///     Author: Your Full Name
+///     Author: Gerardo Palacin
 /// </remarks>
 public class ErrorMessages
 {
