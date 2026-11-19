@@ -44,4 +44,11 @@
         </EmbeddedResource>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Shared\Application\" />
+      <Folder Include="Shared\Domain\Model\" />
+      <Folder Include="Shared\Infrastructure\" />
+      <Folder Include="Shared\Interfaces\" />
+    </ItemGroup>
+
 </Project>
